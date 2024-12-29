@@ -1,0 +1,101 @@
+[
+  {
+    "name": "check slug",
+    "key": "check_slug",
+    "position_x": 20,
+    "position_y": 2,
+    "type": "exec",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn { \"is_null\": data.$trigger.payload.slug == null };\n}"
+    }
+  },
+  {
+    "name": "call nextjs",
+    "key": "call_nextjs",
+    "type": "request",
+    "position_x": 40,
+    "position_y": 2,
+    "options": {
+      "url": "{{$env.REVALIDATE_URL}}",
+      "body": "{\"collection\": \"{{ $trigger.collection }}\",\n \"slug\": \"{{ $trigger.payload.slug ? $trigger.payload.slug : null }}\"\n}",
+      "method": "POST",
+      "headers": [
+        {
+          "value": "{{$env.REVALIDATE_SECRET}}",
+          "header": "X-REVALIDATE-SECRET"
+        }
+      ]
+    }
+  },
+  {
+    "name": "slugify",
+    "key": "slugify",
+    "position_x": 60,
+    "position_y": 2,
+    "type": "exec",
+    "options": {
+      "code": "module.exports = function(data) {\n    // Get the \"name\" field value from the trigger payload\n    console.log(data['name_not_null']);\n    const text = data.$trigger.payload.name || '';\n    const slug = text\n\t\t.toLowerCase()\n\t\t.trim()\n\t\t.replace(/[^\\w\\s-]/g, '')\n\t\t.replace(/[\\s_-]+/g, '-')\n\t\t.replace(/^-+|-+$/g, '');\n\n    return { 'slug': slug };\n};"
+    }
+  },
+  {
+    "name": "is production",
+    "key": "is_production",
+    "type": "condition",
+    "position_x": 20,
+    "position_y": 2,
+    "options": {
+      "filter": {
+        "$env": {
+          "ENVIRONMENT": {
+            "_eq": "production"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "name not null",
+    "key": "name_not_null",
+    "type": "condition",
+    "position_x": 40,
+    "position_y": 2,
+    "options": {
+      "filter": {
+        "_and": [
+          {
+            "$trigger": {
+              "payload": {
+                "name": {
+                  "_neq": "_null"
+                }
+              }
+            }
+          },
+          {
+            "check_slug": {
+              "is_null": {
+                "_eq": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "update",
+    "key": "update",
+    "type": "item-update",
+    "position_x": 80,
+    "position_y": 2,
+    "options": {
+      "key": [
+        "{{ $trigger.key }}"
+      ],
+      "payload": { 
+        "slug": "{{ slugify.slug }}"
+      },
+      "collection": "{{$trigger.collection}}"
+    }
+  }
+]

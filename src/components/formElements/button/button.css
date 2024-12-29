@@ -1,0 +1,15 @@
+button.form-element {
+    color: var(--theme-color);
+    font-size: inherit;
+    height: 60px;
+    padding: 0 20px;
+    border-radius: 30px;
+    border: 2px solid var(--theme-color);;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #fff;
+    transition: box-shadow .25s, border .25s;
+    border-color: transparent;
+    box-shadow: 2px 2px 10px var(--theme-color);
+}

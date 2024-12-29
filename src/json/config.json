@@ -1,0 +1,314 @@
+{
+    "collection": "config",
+    "meta": {
+		"collection": "config",
+		"hidden": false,
+		"singleton": true,
+		"archive_app_filter": true,
+		"item_duplication_fields": null,
+		"sort": 1
+	},
+    "schema": {
+      "name": "config",
+      "comment": null
+    },
+    "fields": [
+        { 
+            "collection": "config",
+            "field": "id",
+            "type": "integer",
+            "schema": {
+                "name": "id",
+                "table": "config",
+                "data_type": "int unsigned",
+                "default_value": null,
+                "generation_expression": null,
+                "max_length": null,
+                "numeric_precision": 10,
+                "numeric_scale": 0,
+                "is_generated": false,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_indexed": false,
+                "is_primary_key": true,
+                "has_auto_increment": true,
+                "foreign_key_column": null,
+                "foreign_key_table": null,
+                "comment": ""
+            },
+            "meta": {
+                "collection": "config",
+                "field": "id",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 1,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "config",
+            "field": "status",
+            "type": "string",
+            "schema": {
+                "name": "status",
+                "table": "config",
+                "data_type": "varchar",
+                "default_value": "published",
+                "generation_expression": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_indexed": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null,
+                "comment": ""
+            },
+            "meta": {
+                "collection": "config",
+                "field": "status",
+                "special": null,
+                "interface": "select-dropdown",
+                "options": {
+                "choices": [
+                    {
+                    "text": "$t:published",
+                    "color": "var(--theme--primary)",
+                    "value": "published"
+                    },
+                    {
+                    "text": "$t:draft",
+                    "color": "var(--theme--foreground)",
+                    "value": "draft"
+                    },
+                    {
+                    "text": "$t:archived",
+                    "color": "var(--theme--warning)",
+                    "value": "archived"
+                    }
+                ]
+                },
+                "display": "labels",
+                "display_options": {
+                "choices": [
+                    {
+                    "text": "$t:published",
+                    "color": "var(--theme--primary)",
+                    "value": "published",
+                    "background": "var(--theme--primary-background)",
+                    "foreground": "var(--theme--primary)"
+                    },
+                    {
+                    "text": "$t:draft",
+                    "color": "var(--theme--foreground)",
+                    "value": "draft",
+                    "background": "var(--theme--background-normal)",
+                    "foreground": "var(--theme--foreground)"
+                    },
+                    {
+                    "text": "$t:archived",
+                    "color": "var(--theme--warning)",
+                    "value": "archived",
+                    "background": "var(--theme--warning-background)",
+                    "foreground": "var(--theme--warning)"
+                    }
+                ],
+                "showAsDot": true
+                },
+                "readonly": false,
+                "hidden": false,
+                "sort": 2,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "config",
+            "field": "date_created",
+            "type": "timestamp",
+            "schema": {
+                "name": "date_created",
+                "table": "config",
+                "data_type": "timestamp",
+                "default_value": null,
+                "generation_expression": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_indexed": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null,
+                "comment": ""
+            },
+            "meta": {
+                "collection": "config",
+                "field": "date_created",
+                "special": [
+                    "date-created"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 3,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "config",
+            "field": "date_updated",
+            "type": "timestamp",
+            "schema": {
+                "name": "date_updated",
+                "table": "config",
+                "data_type": "timestamp",
+                "default_value": null,
+                "generation_expression": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_indexed": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null,
+                "comment": ""
+            },
+            "meta": {
+                "collection": "config",
+                "field": "date_updated",
+                "special": [
+                "date-updated"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 4,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+			"field": "site_name",
+			"type": "string",
+            "meta": {
+                "collection": "config",
+                "field": "site_name",
+                "interface": "input"
+            }
+		},
+        {
+			"field": "site_description",
+			"type": "text",
+            "meta": {
+                "collection": "config",
+                "field": "site_description",
+                "interface": "input-multiline"
+            }
+		},
+        {
+            "field": "keywords",
+            "type": "text",
+            "meta": {
+                "collection": "config",
+                "field": "keywords",
+                "interface": "input-multiline",
+                "note": "Keywords help the search engine categorizes the website. Separate keywords with commas"
+            }
+        },
+        {
+            "field": "preview",
+            "type": "uuid",
+            "meta": {
+              "field": "preview",
+              "special": [
+                "file"
+              ],
+              "interface": "file-image",
+              "note": "1200px x 630px"
+            },
+            "schema": {
+              "name": "preview",
+              "table": "config",
+              "data_type": "char",
+              "max_length": 36,
+              "is_indexed": true,
+              "foreign_key_column": "id",
+              "foreign_key_table": "directus_files"
+            }
+        },
+        {
+            "field": "preview_twitter",
+            "type": "uuid",
+            "meta": {
+              "field": "preview_twitter",
+              "special": [
+                "file"
+              ],
+              "interface": "file-image",
+              "note": "1200px x 675px"
+            },
+            "schema": {
+              "name": "preview_twitter",
+              "table": "config",
+              "data_type": "char",
+              "max_length": 36,
+              "is_indexed": true,
+              "foreign_key_column": "id",
+              "foreign_key_table": "directus_files"
+            }
+        }
+    ]
+}

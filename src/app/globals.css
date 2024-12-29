@@ -1,42 +1,193 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --pink: #FFD1D1; */
+  /* --blue: #397EE7; */
+  /* --yellow: #F2F92F; */
+  --green: #092;
+  --theme-color: var(--green);
+  --padding: 10px;
+  --border-width: 2px;
+  --border-color: var(--dark-blue);
+  --full-vh: 100vh;
+  --link-color: #000;
+  --link-hover-color: #666;
+  /* --underline-static: path("M0,20s10,0,25,0c20,0,30,0,50,0s30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0,30,0,50,0c15,0,25,0,25,0"); */
+  /* --underline-hover: path("M0,20S10,5,25,5c20,0,30,30,50,30S105,5,125,5s30,30,50,30,30-30,50-30,30,30,50,30,30-30,50-30,30,30,50,30,30-30,50-30,30,30,50,30,30-30,50-30c15,0,25,15,25,15"); */
+  /* --social-media-static: path("M600,600H0V120C0,80,0,39.9,0,0h600v600Z"); */
+  /* --social-media-hover: path("M600,600H60C20,560,0,520,0,480c0-50,60-70,60-120S0,290,0,240s60-70,60-120C60,80,40,40,0,0h540c40,40,60,80,60,120,0,50-60,70-60,120s60,70,60,120-60,70-60,120c0,40,20,80,60,120Z"); */
+  font-family: Helvetica, sans-serif;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
-
+html {
+  font-size: 24px;
+  line-height: 1;
+}
+body {
+  margin: 0;
+  /* background-color: var(--pink); */
+  /* font-family: var(--gtmarmo-font-family),  sans-serif; */
+  letter-spacing: 0.03em;
+}
+h1, h2, h3, h4, p {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+ul {
+  list-style:none;
+  margin: 0;
+  padding:0;
+}
+li {
+  display: block;
+}
 a {
-  color: inherit;
+	color: var(--link-color);
+	text-decoration: none;	
+}
+.js-enabled a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+.body a,
+a.body {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	text-decoration-thickness: 2px;
+}
+.body a:hover,
+a.body:hover {
+  /* color: var(--link-hover-color); */
+  background-color: #2df;
+}
+.underlined {
+  position: relative;
+  display: inline-block;
+}
+.underline-wrapper {
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
+  overflow: hidden;
+  pointer-events: none;
+  left :0;
+  bottom: 0;
+  transform: translate(0, 50%);
+}
+.underline-svg {
+  width: 100%;
+  min-width: 250px;
+}
+.underline {
+  stroke:#000;
+  fill: none;
+  stroke-width: .12em;
+}
+button, input {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+figure {
+  margin: 0;
+}
+.x-small-size {
+  font-size: 0.65rem;
+  /* font-size: 0.65rem; */
+}
+.small-size {
+  font-size: 0.85rem;
+}
+.regular-size {
+  font-size: 1rem;
+}
+.large-size {
+  font-size: 1.4rem;
+}
+.x-large-size {
+  font-size: 2rem;
+}
+.body {
+  line-height: 1.19;
+}
+.body .x-small-size,
+.body.x-small-size{
+  line-height: 1.27;
+}
+.body .small-size,
+.body.small-size{
+  line-height: 1.27;
+}
+.body .large-size,
+.body.large-size {
+  line-height: 1.09;
+}
+.body .x-large-size,
+.body.x-large-size {
+  line-height: 1.125;
+}
+.body p + p {
+  margin-top: 1.19em;
+}
+.pinned {
+  overflow: hidden;
+  position: relative;
+  height: var(--full-vh);
+}
+.full-vh {
+  height: var(--full-vh);
+}
+.full-vw {
+  width: 100vw;
+  max-width: 100%;
+}
+.circle {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+}
+.oval {
+  border-radius: 50%;
+}
+.square-frame {
+  display: block;
+  position: relative;
+  padding-bottom: 100%;
+}
+.bold {
+  font-weight: 700;
+}
+.float-container:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.page {
+  padding: var(--padding);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+@media screen and (min-width: 700px) {
+  
+}
+@media screen and (min-width: 1024px) {
   html {
-    color-scheme: dark;
+    font-size: 28px;
   }
+}
+@media screen and (min-width: 1200px) {
+  
+}
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  html {
+    font-size: 37.5px;
+  }
+  
 }

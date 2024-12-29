@@ -1,0 +1,12 @@
+[
+  {
+    "collection": "config",
+    "field": "preview",
+    "related_collection": "directus_files"
+  },
+  {
+    "collection": "config",
+    "field": "preview_twitter",
+    "related_collection": "directus_files"
+  }
+]
