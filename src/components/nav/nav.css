@@ -1,9 +1,0 @@
-#nav {
-    padding: var(--padding);
-}
-#nav > ul {
-    display: flex;
-}
-.nav-item + .nav-item {
-    margin-left: 20px;
-}
