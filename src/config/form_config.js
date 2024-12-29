@@ -8,7 +8,7 @@ const fields = [
         {
             'type': 'input',
             'name': 'access_token',
-            'description': 'Please enter the access token of the user. The user must have permission to create and update flows, operations, collections, and relations'
+            'description': 'Please enter the access token of the user. The user must have permission to create and update flows, operations, collections, and relations.'
             // 'placeholder': ''
         }
 ]
